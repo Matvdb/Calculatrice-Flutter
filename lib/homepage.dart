@@ -20,17 +20,29 @@ class _MyHomePageState extends State<MyHomePage> {
   void reset(){
     _nombre1 = 0;
     _nombre2 = 0;
-    total = "";
+    total = "Entrer une valeur";
+    _resultat = 0;
   }
 
-  void result(){
+  
+  result(){
     setState(() {
       if (_operateur == "+"){
         _resultat = (_nombre1 + _nombre2);
         total = "$_resultat";
+      } else if (_operateur == "-"){
+        _resultat = (_nombre1 - _nombre2);
+        total = "$_resultat";
+      } else if (_operateur == "*"){
+        _resultat = (_nombre1 * _nombre2);
+        total = "$_resultat";
+      } else if (_operateur == "/"){
+        _resultat = (_nombre1 / _nombre2);
+        total = "$_resultat";
       }
     });
   }
+
 
   void addition(){
     setState(() {
@@ -98,7 +110,7 @@ class _MyHomePageState extends State<MyHomePage> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
-                Text((total + _operateur), style: const TextStyle(fontSize: 25.0, fontWeight: FontWeight.bold),),
+                afficher()
               ],
             ), 
           ),
@@ -111,22 +123,45 @@ class _MyHomePageState extends State<MyHomePage> {
                 children: [
                   ElevatedButton(onPressed: (){
                     setState(() {
-                    _nombre1 = 7;
-                    total = "7";
+                      if(i == 0){
+                      _nombre1 = 7;
+                      total = "7";
+                      _operateur;
+                      i++;
+                      } else if(i == 1){
+                        _nombre2 = 7;
+                        total = "7";
+                        i--;
+                      }
                     });
                   }, child: const Text("7")),
                   const Padding(padding: EdgeInsets.all(8)),
                   ElevatedButton(onPressed: (){
                     setState(() {
-                    _nombre1 = 8;
-                    total = "8";
+                    if(i == 0){
+                      _nombre1 = 4;
+                      total = "4";
+                      _operateur;
+                      i++;
+                      } else if(i == 1){
+                        _nombre2 = 4;
+                        total = "4";
+                        i--;
+                      }
                     });
                   }, child: const Text("4")),
                   const Padding(padding: EdgeInsets.all(8)),
                   ElevatedButton(onPressed: (){
                     setState(() {
-                    _nombre1 = 1;
-                    total = "1";
+                    if(i == 0){
+                      _nombre1 = 1;
+                      total = "1";
+                      i++;
+                      } else if(i == 1){
+                        _nombre2 = 1;
+                        total = "1";
+                        i--;
+                      }
                     });
                   }, child: const Text("1")),
                 ],
@@ -136,25 +171,46 @@ class _MyHomePageState extends State<MyHomePage> {
                 children: [
                   ElevatedButton(onPressed: (){
                     setState(() {
-                    _nombre1 = 8;
-                    total = "8";
-                    if (_nombre1.toString() == _nombre1){
-                      _nombre2 = 8;
-                    }
+                    if(i == 0){
+                      _nombre1 = 8;
+                      total = "8";
+                      _operateur;
+                      i++;
+                      } else if(i == 1){
+                        _nombre2 = 8;
+                        total = "8";
+                        i--;
+                      }
                     });
                   }, child: const Text("8")),
                   const Padding(padding: EdgeInsets.all(8)),
                   ElevatedButton(onPressed: (){
                     setState(() {
-                    _nombre1 = 5;
-                    total = "5";
+                    if(i == 0){
+                      _nombre1 = 5;
+                      total = "5";
+                      _operateur;
+                      i++;
+                      } else if(i == 1){
+                        _nombre2 = 5;
+                        total = "5";
+                        i--;
+                      }
                     });
                   }, child: const Text("5")),
                   const Padding(padding: EdgeInsets.all(8)),
                   ElevatedButton(onPressed: (){
                     setState(() {
-                    _nombre1 = 2;
-                    total = "2";
+                     if(i == 0){
+                      _nombre1 = 2;
+                      total = "2";
+                      _operateur;
+                      i++;
+                      } else if(i == 1){
+                        _nombre2 = 2;
+                        total = "2";
+                        i--;
+                      }
                     });
                   }, child: const Text("2")),
                 ],
@@ -164,22 +220,43 @@ class _MyHomePageState extends State<MyHomePage> {
                 children: [
                   ElevatedButton(onPressed: (){
                     setState(() {
-                    _nombre1 = 9;
-                    total = "9";
+                    if(i == 0){
+                      _nombre1 = 9;
+                      total = "9";
+                      i++;
+                      } else if(i == 1){
+                        _nombre2 = 9;
+                        total = "9";
+                        i--;
+                      }
                     });
                   }, child: const Text("9")),
                   const Padding(padding: EdgeInsets.all(8)),
                   ElevatedButton(onPressed: (){
                     setState(() {
-                    _nombre1 = 6;
-                    total = "6";
+                    if(i == 0){
+                      _nombre1 = 6;
+                      total = "6";
+                      i++;
+                      } else if(i == 1){
+                        _nombre2 = 6;
+                        total = "6";
+                        i--;
+                      }
                     });
                   }, child: const Text("6")),
                   const Padding(padding: EdgeInsets.all(8)),
                   ElevatedButton(onPressed: (){
                     setState(() {
-                    _nombre1 = 3;
-                    total = "3";
+                    if(i == 0){
+                      _nombre1 = 3;
+                      total = "3";
+                      i++;
+                      } else if(i == 1){
+                        _nombre2 = 3;
+                        total = "3";
+                        i--;
+                      }
                     });
                   }, child: const Text("3")),
                 ],
@@ -252,6 +329,18 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       ),
     );
+  }
+
+  Widget afficher(){
+    setState(() {
+      if(i == 0){
+        Text("$_nombre1" "$_operateur");
+        if(i == 1){
+          Text("$_nombre1" "$_nombre2");
+        }
+      }
+    });
+    return Text(total,style: const TextStyle(fontSize: 25.0, fontWeight: FontWeight.bold));
   }
   PopupMenuItem<MenusItem> buildItem(MenusItem item) => PopupMenuItem(
     child:
