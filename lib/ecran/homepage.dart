@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/data/menu_items.dart';
-import 'package:flutter_application_1/ecran/parametre.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({Key? key}) : super(key: key);
@@ -14,10 +12,12 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget _calcButton(String btntxt, Color btncolor, Color txtcolor){
     return SizedBox(
       child: RaisedButton(
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(10),
+        ),
         onPressed: (){
           calcul(btntxt);
         },
-        shape: const CircleBorder(),
         color: btncolor,
         padding: const EdgeInsets.all(20),
         child: Text(
@@ -33,70 +33,39 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      drawer: Drawer(
-        child: ListView(
-          padding: EdgeInsets.zero,
-          children: [
-            const DrawerHeader(
-              decoration: BoxDecoration(
-                color: Colors.blue,
-              ), 
-              child: Text("Calculatrice", style: TextStyle(
-                fontSize: 25.0,
-                fontWeight: FontWeight.bold,
-              ),),
-              ),
-              ListTile(
-                title: const Text('Calcul décimal'),
-                onTap: () {
-                },
-              ),
-              ListTile(
-                title: const Text('Contact'),
-                onTap: () {
-                },
-              ),
-          ],
-        ),
-      ),
-      appBar: AppBar(
-        title: const Text("Calculatrice"),
-        centerTitle: true,
-        actions: [
-          Container(
-                  decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10),
-                  color: Colors.white38,
-                  ),
-                  height: 10,
-                  width: 50,
-                  child: PopupMenuButton<MenusItem>(
-                  itemBuilder: (context) => [
-                    ...MenusItems.itemsFirst.map(buildItem).toList(),
-                ],),
-                ),
-        ],
-      ),
+    return Scaffold( 
       body: Container(
             height: MediaQuery.of(context).size.height * 1,
             width: MediaQuery.of(context).size.width * 1,
-            color: Colors.lightBlue,
+            color: Colors.black,
             child: SingleChildScrollView(
               scrollDirection: Axis.vertical, 
               child: Column(
         mainAxisAlignment: MainAxisAlignment.end,
         children: [
-          Row(
+          Container(
+            alignment: Alignment.center,
+            height: MediaQuery.of(context).size.height * 0.07,
+            width: MediaQuery.of(context).size.width * 0.5,
+            decoration: const BoxDecoration(
+              borderRadius: BorderRadius.only(bottomLeft: Radius.circular(10), bottomRight: Radius.circular(10)),
+              color: Colors.white,
+            ),
+            child: const Text("Calculatrice", style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),),
+          ),
+          SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
+            child: Row(
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
               Padding(padding: EdgeInsets.all(10.0),
               child: Text(text,
                 textAlign: TextAlign.left,
-                style: const TextStyle(color: Colors.black,
+                style: const TextStyle(color: Colors.white,
                 fontSize: 50),
-              ),)
+              ),),
             ],
+          ),
           ),
           const SizedBox(
             height: 50,
@@ -158,7 +127,9 @@ class _MyHomePageState extends State<MyHomePage> {
                 onPressed: (){
 
                 },
-                shape: const StadiumBorder(),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10),
+                ),
                 child: const Text("0",
                   style: TextStyle(
                     fontSize: 35,
@@ -279,30 +250,4 @@ class _MyHomePageState extends State<MyHomePage> {
     }
     return result; 
   }
-
-  PopupMenuItem<MenusItem> buildItem(MenusItem item) => PopupMenuItem(
-    child:
-    Column(
-      children: [
-        RaisedButton(
-          onPressed: () => Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const Parametre())),
-        child: Row(
-          children: [
-            Icon(
-                item.icon, color: Colors.black, 
-                size: 20,
-                ),
-                const Padding(padding: EdgeInsets.all(10)),
-                Text(item.text), 
-          ],
-        ),
-        color: Colors.white,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(15),
-        ),
-        splashColor: Colors.lightBlue,
-        ),
-        ],
-        ), 
-    );
 }
