@@ -1,16 +1,9 @@
-# flutter_application_1
+# Calculatrice en Flutter
 
-A new Flutter project.
+Projet personnel ayant pour simple but de tester, élaborer et développer une calculatrice basée de la calculatrice Windows en y apportant mes modifications personnel. 
 
-## Getting Started
+## Mise à jour
 
-This project is a starting point for a Flutter application.
+Ce projet risque fortement d'avoir des modifications voir des améliorations en fonction de mon imagination et de mes envies.
 
-A few resources to get you started if this is your first Flutter project:
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
