@@ -11,15 +11,18 @@ class _MyHomePageState extends State<MyHomePage> {
   
   Widget _calcButton(String btntxt, Color btncolor, Color txtcolor){
     return SizedBox(
-      child: RaisedButton(
+      child: ElevatedButton(
+        style: ElevatedButton.styleFrom(
+        padding: const EdgeInsets.all(20),
+        alignment: Alignment.center,
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(10),
+            borderRadius: BorderRadius.circular(10.0)
+        ),
+        backgroundColor: btncolor,
         ),
         onPressed: (){
           calcul(btntxt);
         },
-        color: btncolor,
-        padding: const EdgeInsets.all(20),
         child: Text(
           btntxt,
           style: TextStyle(
@@ -74,8 +77,11 @@ class _MyHomePageState extends State<MyHomePage> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               _calcButton('AC', Colors.grey.shade100, Colors.black),
+              const Padding(padding: EdgeInsets.all(5)),
               _calcButton('+/-', Colors.grey.shade100, Colors.black),
+              const Padding(padding: EdgeInsets.all(5)),
               _calcButton('%', Colors.grey.shade100, Colors.black),
+              const Padding(padding: EdgeInsets.all(5)),
               _calcButton('/', Colors.amber, Colors.white),
             ],
           ),  
@@ -85,10 +91,13 @@ class _MyHomePageState extends State<MyHomePage> {
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              _calcButton('7', Colors.grey, Colors.white),
-              _calcButton('8', Colors.grey, Colors.white),
-              _calcButton('9', Colors.grey, Colors.white),
-              _calcButton('x', Colors.amber, Colors.white),
+              _calcButton(' 7 ', Colors.grey, Colors.white),
+              const Padding(padding: EdgeInsets.all(4)),
+              _calcButton(' 8 ', Colors.grey, Colors.white),
+              const Padding(padding: EdgeInsets.all(4)),
+              _calcButton(' 9 ', Colors.grey, Colors.white),
+              const Padding(padding: EdgeInsets.all(4)),
+              _calcButton(' x ', Colors.amber, Colors.white),
             ],
           ),
           const SizedBox(
@@ -97,10 +106,13 @@ class _MyHomePageState extends State<MyHomePage> {
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              _calcButton('4', Colors.grey, Colors.white),
-              _calcButton('5', Colors.grey, Colors.white),
-              _calcButton('6', Colors.grey, Colors.white),
-              _calcButton('-', Colors.amber, Colors.white),
+              _calcButton(' 4 ', Colors.grey, Colors.white),
+              const Padding(padding: EdgeInsets.all(4)),
+              _calcButton(' 5 ', Colors.grey, Colors.white),
+              const Padding(padding: EdgeInsets.all(4)),
+              _calcButton(' 6 ', Colors.grey, Colors.white),
+              const Padding(padding: EdgeInsets.all(4)),
+              _calcButton(' - ', Colors.amber, Colors.white),
             ],
           ),
           const SizedBox(
@@ -109,10 +121,13 @@ class _MyHomePageState extends State<MyHomePage> {
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              _calcButton('1', Colors.grey, Colors.white),
-              _calcButton('2', Colors.grey, Colors.white),
-              _calcButton('3', Colors.grey, Colors.white),
-              _calcButton('+', Colors.amber, Colors.white),
+              _calcButton(' 1 ', Colors.grey, Colors.white),
+              const Padding(padding: EdgeInsets.all(4)),
+              _calcButton(' 2 ', Colors.grey, Colors.white),
+              const Padding(padding: EdgeInsets.all(4)),
+              _calcButton(' 3 ', Colors.grey, Colors.white),
+              const Padding(padding: EdgeInsets.all(4)),
+              _calcButton(' + ', Colors.amber, Colors.white),
             ],
           ),  
           const SizedBox(
@@ -121,24 +136,26 @@ class _MyHomePageState extends State<MyHomePage> {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              RaisedButton(
-                color: Colors.grey,
-                padding: const EdgeInsets.fromLTRB(34, 20, 110, 20),
-                onPressed: (){
-
-                },
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(10),
+              ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  padding: const EdgeInsets.fromLTRB(34, 20, 110, 20),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10.0)
+                  ),
+                backgroundColor: Colors.grey,
                 ),
-                child: const Text("0",
+                onPressed: (){
+                  calcul("0");
+                },
+                child:const Text("0",
                   style: TextStyle(
                     fontSize: 35,
                     color: Colors.white
                   ),
                 ),
               ),
-              _calcButton('.', Colors.grey, Colors.white),
-              _calcButton('=', Colors.amber, Colors.white),
+              _calcButton(' . ', Colors.grey, Colors.white),
+              _calcButton(' = ', Colors.amber, Colors.white),
             ],
           ),
         ],
