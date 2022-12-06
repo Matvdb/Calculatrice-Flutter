@@ -9,6 +9,7 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   
+  // Generate calculator buttons
   Widget _calcButton(String btntxt, Color btncolor, Color txtcolor){
     return SizedBox(
       child: ElevatedButton(
@@ -37,6 +38,7 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold( 
+      // Creation background color and alignement buttons
       body: Container(
             height: MediaQuery.of(context).size.height * 1,
             width: MediaQuery.of(context).size.width * 1,
@@ -74,7 +76,7 @@ class _MyHomePageState extends State<MyHomePage> {
             height: 50,
           ),
           Row(
-            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               _calcButton('AC', Colors.grey.shade100, Colors.black),
               const Padding(padding: EdgeInsets.all(5)),
@@ -89,52 +91,52 @@ class _MyHomePageState extends State<MyHomePage> {
             height: 10,
           ),  
           Row(
-            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-              _calcButton(' 7 ', Colors.grey, Colors.white),
+              _calcButton('7', Colors.grey, Colors.white),
               const Padding(padding: EdgeInsets.all(4)),
-              _calcButton(' 8 ', Colors.grey, Colors.white),
+              _calcButton('8', Colors.grey, Colors.white),
               const Padding(padding: EdgeInsets.all(4)),
-              _calcButton(' 9 ', Colors.grey, Colors.white),
+              _calcButton('9', Colors.grey, Colors.white),
               const Padding(padding: EdgeInsets.all(4)),
-              _calcButton(' x ', Colors.amber, Colors.white),
+              _calcButton('x', Colors.amber, Colors.white),
             ],
           ),
           const SizedBox(
             height: 10,
           ),
           Row(
-            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-              _calcButton(' 4 ', Colors.grey, Colors.white),
+              _calcButton('4', Colors.grey, Colors.white),
               const Padding(padding: EdgeInsets.all(4)),
-              _calcButton(' 5 ', Colors.grey, Colors.white),
+              _calcButton('5', Colors.grey, Colors.white),
               const Padding(padding: EdgeInsets.all(4)),
-              _calcButton(' 6 ', Colors.grey, Colors.white),
+              _calcButton('6', Colors.grey, Colors.white),
               const Padding(padding: EdgeInsets.all(4)),
-              _calcButton(' - ', Colors.amber, Colors.white),
+              _calcButton('-', Colors.amber, Colors.white),
             ],
           ),
           const SizedBox(
             height: 10,
           ),
           Row(
-            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-              _calcButton(' 1 ', Colors.grey, Colors.white),
+              _calcButton('1', Colors.grey, Colors.white),
               const Padding(padding: EdgeInsets.all(4)),
-              _calcButton(' 2 ', Colors.grey, Colors.white),
+              _calcButton('2', Colors.grey, Colors.white),
               const Padding(padding: EdgeInsets.all(4)),
-              _calcButton(' 3 ', Colors.grey, Colors.white),
+              _calcButton('3', Colors.grey, Colors.white),
               const Padding(padding: EdgeInsets.all(4)),
-              _calcButton(' + ', Colors.amber, Colors.white),
+              _calcButton('+', Colors.amber, Colors.white),
             ],
           ),  
           const SizedBox(
             height: 10,
           ),  
           Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
@@ -154,8 +156,8 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                 ),
               ),
-              _calcButton(' . ', Colors.grey, Colors.white),
-              _calcButton(' = ', Colors.amber, Colors.white),
+              _calcButton('.', Colors.grey, Colors.white),
+              _calcButton('=', Colors.amber, Colors.white),
             ],
           ),
         ],
