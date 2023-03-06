@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/data/menu_items.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({Key? key}) : super(key: key);
@@ -38,6 +39,11 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold( 
+      appBar: AppBar(
+        backgroundColor: Colors.orange.shade300,
+        centerTitle: true,
+        title: const Text("Calculatrice", style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),),
+      ),
       // Creation background color and alignement buttons
       body: Container(
             height: MediaQuery.of(context).size.height * 1,
@@ -48,27 +54,27 @@ class _MyHomePageState extends State<MyHomePage> {
               child: Column(
         mainAxisAlignment: MainAxisAlignment.end,
         children: [
-          Container(
-            alignment: Alignment.center,
-            height: MediaQuery.of(context).size.height * 0.07,
-            width: MediaQuery.of(context).size.width * 0.5,
-            decoration: const BoxDecoration(
-              borderRadius: BorderRadius.only(bottomLeft: Radius.circular(10), bottomRight: Radius.circular(10)),
-              color: Colors.white,
-            ),
-            child: const Text("Calculatrice", style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),),
-          ),
           SingleChildScrollView(
             scrollDirection: Axis.horizontal,
             child: Row(
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
-              Padding(padding: EdgeInsets.all(10.0),
-              child: Text(text,
-                textAlign: TextAlign.left,
-                style: const TextStyle(color: Colors.white,
-                fontSize: 50),
-              ),),
+              Padding(
+                padding: const EdgeInsets.all(10.0),
+                child: Container(
+                  height: MediaQuery.of(context).size.height * 0.12,
+                  width: MediaQuery.of(context).size.width * 0.85,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                    color: Theme.of(context).primaryColor,
+                  ),
+                  child: Text(text,
+                  textAlign: TextAlign.right,
+                  style: const TextStyle(color: Colors.white,
+                  fontSize: 50),
+                  ),
+                ),
+              ),
             ],
           ),
           ),
