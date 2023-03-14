@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/ecran/calculsApprofondis.dart';
 import 'package:flutter_application_1/ecran/homepage.dart';
 
 void main() {
@@ -19,6 +20,9 @@ class MyApp extends StatelessWidget {
       ),
       debugShowCheckedModeBanner: false,
       home: const MyHomePage(),
+      routes: <String, WidgetBuilder>{
+        '/calculApp': (BuildContext context) => const CalcApprof(),
+      },
     );
   }
 }

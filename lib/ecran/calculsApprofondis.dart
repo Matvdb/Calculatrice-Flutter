@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/data/menu_items.dart';
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({Key? key}) : super(key: key);
+class CalcApprof extends StatefulWidget {
+  const CalcApprof({Key? key}) : super(key: key);
 
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
+  State<CalcApprof> createState() => _CalcApprofState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _CalcApprofState extends State<CalcApprof> {
   
   // Generate calculator buttons
   Widget _calcButton(String btntxt, Color btncolor, Color txtcolor){
@@ -38,25 +38,11 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold( 
-      drawer: Drawer(
-        backgroundColor: Colors.orange.shade200,
-        width: MediaQuery.of(context).size.width * 0.5,
-        child: ListView(
-          children: [
-            const Padding(padding: EdgeInsets.all(8)),
-            ListTile(
-              leading: Text("Calcul approfondi"),
-              focusColor: Colors.white,
-              onTap: () => Navigator.pushNamed(context, "/calculApp"),
-            )
-          ],
-        ),
-      ),
+    return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.orange.shade300,
         centerTitle: true,
-        title: const Text("Calculatrice", style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),),
+        title: const Text("Calcul approfondi", style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),),
       ),
       // Creation background color and alignement buttons
       body: Container(
